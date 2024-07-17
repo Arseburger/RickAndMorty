@@ -7,22 +7,49 @@
 
 import UIKit
 
-struct Character {
-    var image: UIImage
+struct Character: Decodable {
+    var id: Int
     var name: String
-    var status: Status
-    enum Status: String {
-        case alive = "Alive"
-        case dead = "Dead"
-        case unknown = "Unknown"
-    }
+    
+    var status: String
     var species: String
     var gender: String
     
-    var episodes: [Int]
-    var location: String
+    struct Location: Decodable {
+        let name: String
+    }
+    var location: Location
     
-    static let Rick = Character(image: .init(named: "Rick")!, name: "Rick Sanchez", status: .alive, species: "Human", gender: "Male", episodes: .init(1...51), location: "Citadel of Ricks")
+    var image: String
+    var episode: [String]
     
-    static let empty = Character(image: .init(systemName: "pencil")!, name: "1", status: .unknown, species: "2", gender: "3", episodes: [4, 5, 6], location: "7")
+    static let Rick = Character.init(
+        id: 1,
+        name: "Rick Sanchez",
+        status: "Alive",
+        species: "Human",
+        gender: "Male",
+        location: Location(
+            name: "Citadel of Ricks"
+        ),
+        image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        episode: [1...51].map {
+            "https://rickandmortyapi.com/api/episode/\($0)"
+        }
+    )
 }
+
+    enum Status: String, Decodable {
+        case alive = "Alive"
+        case dead = "Dead"
+        case unknown = "Unknown"
+        
+        init?(rawValue: String) {
+            switch rawValue {
+                case "Alive": self = .alive
+                case "Dead": self = .dead
+                case "Unknown": self = .unknown
+                default: self = .unknown
+            }
+        }
+    }

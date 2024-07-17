@@ -17,10 +17,42 @@ extension UINavigationController {
         ]
         appearence.backgroundColor = .black
         
-        self.navigationBar.standardAppearance = appearence
-        self.navigationBar.compactAppearance = appearence
-        self.navigationBar.scrollEdgeAppearance = appearence
-        self.navigationBar.backgroundColor = .black
-        self.navigationBar.tintColor = .white
+        navigationBar.standardAppearance = appearence
+        navigationBar.compactAppearance = appearence
+        navigationBar.scrollEdgeAppearance = appearence
+        navigationBar.backgroundColor = .black
+        navigationBar.tintColor = .white
+    }
+}
+
+extension UIImageView {
+    func loadImage(from url: String) {
+        guard let url = URL(string: url) else { return }
+        
+        let cache = URLCache.shared
+        let request = URLRequest(url: url)
+        
+        if let imageData = cache.cachedResponse(for: request)?.data {
+            self.image = UIImage(data: imageData)
+        } else {
+            URLSession.shared.dataTask(with: request) { data, response, _ in
+                DispatchQueue.main.async {
+                    guard let data = data, let response = response else { return }
+                    let cacheRepsonse = CachedURLResponse(response: response, data: data)
+                    cache.storeCachedResponse(cacheRepsonse, for: request)
+                    self.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+    }
+}
+
+extension  String {
+    func stringAfterLast(_ char: String) -> String {
+        guard self.contains(char), char.count == 1 else { return "" }
+        let charIndex = self.lastIndex(of: String.Element.init(char))!
+        let nextIndex = self.index(after: charIndex)
+        let result = self[nextIndex...]
+        return String(result)
     }
 }

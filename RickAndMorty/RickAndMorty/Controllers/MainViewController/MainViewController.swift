@@ -16,8 +16,9 @@ final class MainViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private var characters: [Character] = .init(repeating: .Rick, count: 10)
-    
+    private lazy var service = CharacterService()
+    private var characters: [Character] = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -28,6 +29,15 @@ final class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationItem.title = "Rick & Morty Characters"
         navigationItem.backButtonTitle = ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        service.loadCharacters { [weak self] chars in
+            self?.characters.append(contentsOf: chars)
+            self?.tableView.reloadData()
+        }
     }
 
 }
@@ -46,7 +56,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
-        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
