@@ -20,6 +20,8 @@
 		A8E4BE172C47E9F000828BB7 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE152C47E9F000828BB7 /* IBMPlexSans-Bold.ttf */; };
 		A8E4BE182C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE162C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf */; };
 		A8E4BE1B2C47EB7F00828BB7 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */; };
+		A8E4BE1F2C47F4FF00828BB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE1D2C47F4FF00828BB7 /* DetailViewController.swift */; };
+		A8E4BE202C47F4FF00828BB7 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE1E2C47F4FF00828BB7 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		A8E4BE152C47E9F000828BB7 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
 		A8E4BE162C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		A8E4BE1D2C47F4FF00828BB7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A8E4BE1E2C47F4FF00828BB7 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB56162C47C7090018B137 /* MainViewController */,
+				A8E4BE1C2C47F4DA00828BB7 /* DetailViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +165,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A8E4BE1C2C47F4DA00828BB7 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE1D2C47F4FF00828BB7 /* DetailViewController.swift */,
+				A8E4BE1E2C47F4FF00828BB7 /* DetailViewController.xib */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +235,7 @@
 				A8E4BE082C47CC8200828BB7 /* CharacterTableViewCell.xib in Resources */,
 				A8CB56012C47C1EF0018B137 /* Assets.xcassets in Resources */,
 				A8E4BE182C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				A8E4BE202C47F4FF00828BB7 /* DetailViewController.xib in Resources */,
 				A8E4BE172C47E9F000828BB7 /* IBMPlexSans-Bold.ttf in Resources */,
 				A8CB56112C47C53F0018B137 /* MainViewController.xib in Resources */,
 				A8E4BE142C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf in Resources */,
@@ -241,6 +256,7 @@
 				A8E4BE1B2C47EB7F00828BB7 /* CharacterModel.swift in Sources */,
 				A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */,
 				A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */,
+				A8E4BE1F2C47F4FF00828BB7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
