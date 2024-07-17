@@ -11,6 +11,15 @@
 		A8CB56012C47C1EF0018B137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8CB56002C47C1EF0018B137 /* Assets.xcassets */; };
 		A8CB56112C47C53F0018B137 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB560F2C47C53F0018B137 /* MainViewController.xib */; };
 		A8CB56122C47C53F0018B137 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB56102C47C53F0018B137 /* MainViewController.swift */; };
+		A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE052C47CC8200828BB7 /* CharacterTableViewCell.swift */; };
+		A8E4BE082C47CC8200828BB7 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE062C47CC8200828BB7 /* CharacterTableViewCell.xib */; };
+		A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE092C47CCA400828BB7 /* Extensions.swift */; };
+		A8E4BE0E2C47D42300828BB7 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE0D2C47D42300828BB7 /* Fonts.swift */; };
+		A8E4BE132C47DB8E00828BB7 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE102C47DB8E00828BB7 /* IBMPlexSans-Medium.ttf */; };
+		A8E4BE142C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE112C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf */; };
+		A8E4BE172C47E9F000828BB7 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE152C47E9F000828BB7 /* IBMPlexSans-Bold.ttf */; };
+		A8E4BE182C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE162C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf */; };
+		A8E4BE1B2C47EB7F00828BB7 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,15 @@
 		A8CB56052C47C1EF0018B137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CB560F2C47C53F0018B137 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A8CB56102C47C53F0018B137 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A8E4BE052C47CC8200828BB7 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		A8E4BE062C47CC8200828BB7 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		A8E4BE092C47CCA400828BB7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A8E4BE0D2C47D42300828BB7 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		A8E4BE102C47DB8E00828BB7 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		A8E4BE112C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		A8E4BE152C47E9F000828BB7 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		A8E4BE162C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB56132C47C6E20018B137 /* App */,
+				A8E4BE192C47EB6D00828BB7 /* Models */,
 				A8CB56142C47C6ED0018B137 /* Controllers */,
 				A8CB56152C47C6FC0018B137 /* Resources */,
 			);
@@ -63,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CB55F72C47C1ED0018B137 /* AppDelegate.swift */,
+				A8E4BE092C47CCA400828BB7 /* Extensions.swift */,
 				A8CB56052C47C1EF0018B137 /* Info.plist */,
 			);
 			path = App;
@@ -79,6 +99,7 @@
 		A8CB56152C47C6FC0018B137 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4BE0B2C47D3F600828BB7 /* Fonts */,
 				A8CB56002C47C1EF0018B137 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -87,10 +108,56 @@
 		A8CB56162C47C7090018B137 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4BE032C47CC5400828BB7 /* Cell */,
 				A8CB56102C47C53F0018B137 /* MainViewController.swift */,
 				A8CB560F2C47C53F0018B137 /* MainViewController.xib */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		A8E4BE032C47CC5400828BB7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE042C47CC5C00828BB7 /* CharacterCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A8E4BE042C47CC5C00828BB7 /* CharacterCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE052C47CC8200828BB7 /* CharacterTableViewCell.swift */,
+				A8E4BE062C47CC8200828BB7 /* CharacterTableViewCell.xib */,
+			);
+			path = CharacterCell;
+			sourceTree = "<group>";
+		};
+		A8E4BE0B2C47D3F600828BB7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE0D2C47D42300828BB7 /* Fonts.swift */,
+				A8E4BE0C2C47D40100828BB7 /* IBM Plex Sans */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A8E4BE0C2C47D40100828BB7 /* IBM Plex Sans */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE152C47E9F000828BB7 /* IBMPlexSans-Bold.ttf */,
+				A8E4BE162C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf */,
+				A8E4BE102C47DB8E00828BB7 /* IBMPlexSans-Medium.ttf */,
+				A8E4BE112C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf */,
+			);
+			path = "IBM Plex Sans";
+			sourceTree = "<group>";
+		};
+		A8E4BE192C47EB6D00828BB7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +218,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E4BE082C47CC8200828BB7 /* CharacterTableViewCell.xib in Resources */,
 				A8CB56012C47C1EF0018B137 /* Assets.xcassets in Resources */,
+				A8E4BE182C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				A8E4BE172C47E9F000828BB7 /* IBMPlexSans-Bold.ttf in Resources */,
 				A8CB56112C47C53F0018B137 /* MainViewController.xib in Resources */,
+				A8E4BE142C47DB8E00828BB7 /* IBMPlexSans-Regular.ttf in Resources */,
+				A8E4BE132C47DB8E00828BB7 /* IBMPlexSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CB55F82C47C1ED0018B137 /* AppDelegate.swift in Sources */,
+				A8E4BE0E2C47D42300828BB7 /* Fonts.swift in Sources */,
 				A8CB56122C47C53F0018B137 /* MainViewController.swift in Sources */,
+				A8E4BE1B2C47EB7F00828BB7 /* CharacterModel.swift in Sources */,
+				A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */,
+				A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +372,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BR2TY2CKR7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -323,7 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BR2TY2CKR7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
