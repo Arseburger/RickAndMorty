@@ -44,20 +44,22 @@ final class CharacterTableViewCell: UITableViewCell {
     
     func setCharacter(_ char: Character) {
         nameLabel.text = char.name
-        statusLabel.text = char.status.rawValue
-        switch char.status {
-        case .alive:
+        statusLabel.text = char.status
+        switch Status(rawValue: char.status) {
+            case .alive:
                 statusLabel.textColor = .init(named: "Green")
-        case .dead:
+            case .dead:
                 statusLabel.textColor = .init(named: "Red")
-        case .unknown:
-            statusLabel.textColor = .init(named: "Grey")
+            case .unknown:
+                statusLabel.textColor = .init(named: "Grey")
+            default:
+                break
         }
         
         speciesLabel.text = char.species
         genderLabel.text = char.gender
         
-        characterImageView.image = char.image
+        characterImageView.loadImage(from: char.image)
     }
     
 }
