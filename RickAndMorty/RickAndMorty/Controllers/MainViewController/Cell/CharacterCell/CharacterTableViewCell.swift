@@ -24,7 +24,7 @@ final class CharacterTableViewCell: UITableViewCell {
     private func setupAppearence() {
         
         bottomView.layer.cornerRadius = 24
-        bottomView.backgroundColor = .init(named: "CellBackground")
+        bottomView.backgroundColor = .init(named: "Background")
         
         nameLabel.font = IBMPlexSans.getFont(weight: .medium, of: 18)
         statusLabel.font = IBMPlexSans.getFont(weight: .semiBold, of: 12)
@@ -37,6 +37,8 @@ final class CharacterTableViewCell: UITableViewCell {
         
         characterImageView.contentMode = .scaleAspectFill
         characterImageView.layer.cornerRadius = 10
+        
+        selectionStyle = .none
         backgroundColor = .clear
     }
     

@@ -15,13 +15,12 @@ extension UINavigationController {
             .font : IBMPlexSans.getFont(weight: .bold, of: 24.0),
             .backgroundColor : UIColor.clear
         ]
-        
         appearence.backgroundColor = .black
+        
         self.navigationBar.standardAppearance = appearence
         self.navigationBar.compactAppearance = appearence
         self.navigationBar.scrollEdgeAppearance = appearence
         self.navigationBar.backgroundColor = .black
         self.navigationBar.tintColor = .white
-        self.navigationItem.backButtonTitle = ""
     }
 }

@@ -16,6 +16,8 @@ final class MainViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private var characters: [Character] = .init(repeating: .Rick, count: 10)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -25,6 +27,7 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Rick & Morty Characters"
+        navigationItem.backButtonTitle = ""
     }
 
 }
@@ -41,13 +44,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.backgroundColor = .clear
         tableView.tintColor = .clear
         
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.separatorStyle = .none
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        characters.count
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -59,10 +62,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        cell.setCharacter(.Rick)
+        let char = characters[indexPath.row]
+        cell.setCharacter(char)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let char = characters[indexPath.row]
+        let detailVC = DetailViewController()
+        detailVC.setCharacter(char)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
     
 }
