@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="RickAndMorty" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="CeW-QX-tEM" id="EHS-5w-CKR"/>
                 <outlet property="tableView" destination="hya-RD-qi3" id="mvX-rK-AST"/>
+                <outlet property="tableViewBottomConstraint" destination="HuM-xh-Ael" id="Hrb-dK-xa7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,16 +25,25 @@
                     <rect key="frame" x="0.0" y="46" width="414" height="808"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CeW-QX-tEM">
+                    <rect key="frame" x="187" y="858" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="iMH-U1-nJh"/>
+                        <constraint firstAttribute="height" constant="40" id="iYJ-pn-aXe"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="hya-RD-qi3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="16b-wK-suK"/>
+                <constraint firstItem="CeW-QX-tEM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Mm-TC-2HX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hya-RD-qi3" secondAttribute="trailing" id="8R5-2z-dD1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hya-RD-qi3" secondAttribute="bottom" constant="8" id="HuM-xh-Ael"/>
+                <constraint firstItem="CeW-QX-tEM" firstAttribute="top" secondItem="hya-RD-qi3" secondAttribute="bottom" constant="4" id="luR-pv-ewg"/>
                 <constraint firstItem="hya-RD-qi3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="2" id="vUh-qT-6b9"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="150"/>
+            <point key="canvasLocation" x="137.68115942028987" y="150"/>
         </view>
     </objects>
     <resources>

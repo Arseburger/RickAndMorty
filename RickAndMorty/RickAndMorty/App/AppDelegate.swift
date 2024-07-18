@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UINavigationController(rootViewController: MainViewController())
         vc.setupNavigationBar()
         window?.rootViewController = vc
+        URLCache.shared = .init(memoryCapacity: 6 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, directory: nil)
         
         return true
     }

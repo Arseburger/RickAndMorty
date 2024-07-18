@@ -25,6 +25,7 @@
 		A8E4BE272C4841B100828BB7 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE262C4841B100828BB7 /* RequestResult.swift */; };
 		A8E4BE2A2C48489F00828BB7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE292C48489F00828BB7 /* ApiClient.swift */; };
 		A8E4BE2C2C4855DB00828BB7 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE2B2C4855DB00828BB7 /* CharacterService.swift */; };
+		A8E4BE322C499B8500828BB7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE312C499B8500828BB7 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A8E4BE262C4841B100828BB7 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		A8E4BE292C48489F00828BB7 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A8E4BE2B2C4855DB00828BB7 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
+		A8E4BE312C499B8500828BB7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				A8E4BE032C47CC5400828BB7 /* Cell */,
 				A8CB56102C47C53F0018B137 /* MainViewController.swift */,
+				A8E4BE312C499B8500828BB7 /* MainViewModel.swift */,
 				A8CB560F2C47C53F0018B137 /* MainViewController.xib */,
 			);
 			path = MainViewController;
@@ -285,6 +288,7 @@
 				A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */,
 				A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */,
 				A8E4BE1F2C47F4FF00828BB7 /* DetailViewController.swift in Sources */,
+				A8E4BE322C499B8500828BB7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

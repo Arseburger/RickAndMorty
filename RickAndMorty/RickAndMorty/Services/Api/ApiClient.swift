@@ -52,7 +52,6 @@ final class ApiClient {
                     print("Error parsing JSON: \(error.localizedDescription)")
                 }
             }
-            
         }
         task.resume()
     }

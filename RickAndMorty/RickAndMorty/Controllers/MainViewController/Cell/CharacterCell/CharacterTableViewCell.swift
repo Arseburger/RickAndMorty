@@ -15,6 +15,8 @@ final class CharacterTableViewCell: UITableViewCell {
     @IBOutlet private weak var speciesLabel: UILabel!
     @IBOutlet private weak var genderLabel: UILabel!
     @IBOutlet private weak var bottomView: UIView!
+
+    private var loadingWorkItem: DispatchWorkItem?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,6 +45,9 @@ final class CharacterTableViewCell: UITableViewCell {
     }
     
     func setCharacter(_ char: Character) {
+        loadingWorkItem?.cancel()
+        loadingWorkItem = nil
+
         nameLabel.text = char.name
         statusLabel.text = char.status
         switch Status(rawValue: char.status) {
@@ -59,7 +64,16 @@ final class CharacterTableViewCell: UITableViewCell {
         speciesLabel.text = char.species
         genderLabel.text = char.gender
         
-        characterImageView.loadImage(from: char.image)
+        loadingWorkItem = characterImageView.loadImage(from: char.image)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        loadingWorkItem?.cancel()
+        loadingWorkItem = nil
+        [statusLabel, genderLabel, speciesLabel, nameLabel].forEach {
+            $0?.text = nil
+        }
+        characterImageView.image = nil
+    }
 }
