@@ -26,29 +26,55 @@ extension UINavigationController {
 }
 
 extension UIImageView {
-    func loadImage(from url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        let cache = URLCache.shared
-        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
-        
-        if let imageData = cache.cachedResponse(for: request)?.data {
+    func loadImage(from url: String) -> DispatchWorkItem? {
+        var workItem: DispatchWorkItem?
+        let copyWorkItem = ImageLoader.shared.load(url: url) { image in
+            guard let image = image else {
+                return
+            }
+
+            if let workItem = workItem, workItem.isCancelled {
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.image = image
+            }
+        }
+        workItem = copyWorkItem
+        return workItem
+    }
+}
+
+final class ImageLoader {
+    static let shared = ImageLoader()
+
+    private let queue = DispatchQueue(label: "com.rick_morty.imageloader", qos: .userInteractive)
+
+    func load(url: String, completion: @escaping (UIImage?) -> Void) -> DispatchWorkItem {
+        let workItem = DispatchWorkItem {
+            guard let url = URL(string: url) else { return }
             
-            self.image = UIImage(data: imageData)
+            let cache = URLCache.shared
+            let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
             
-        } else {
-            
-            let session = URLSession.shared
-            let task = session.dataTask(with: request) { data, response, _ in
-                DispatchQueue.main.async {
+            if let imageData = cache.cachedResponse(for: request)?.data {
+                completion(UIImage(data: imageData))
+            } else {
+                
+                let session = URLSession.shared
+                let task = session.dataTask(with: request) { data, response, _ in
                     guard let data = data, let response = response else { return }
                     let cacheRepsonse = CachedURLResponse(response: response, data: data)
                     cache.storeCachedResponse(cacheRepsonse, for: request)
-                    self.image = UIImage(data: data)
+                    completion(UIImage(data: data))
                 }
+                task.resume()
             }
-            task.resume()
         }
+
+        queue.async(execute: workItem)
+        return workItem
     }
 }
 

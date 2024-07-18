@@ -7,15 +7,14 @@
 
 import UIKit
 
-struct Character: Decodable {
+struct Character: Decodable, Hashable {
     var id: Int
     var name: String
-    
     var status: String
     var species: String
     var gender: String
     
-    struct Location: Decodable {
+    struct Location: Decodable, Hashable {
         let name: String
     }
     var location: Location
@@ -37,6 +36,10 @@ struct Character: Decodable {
             "https://rickandmortyapi.com/api/episode/\($0)"
         }
     )
+
+    func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
+    }
 }
 
     enum Status: String, Decodable {
