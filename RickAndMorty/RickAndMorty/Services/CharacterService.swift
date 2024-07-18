@@ -21,10 +21,19 @@ final class CharacterService {
                     DispatchQueue.main.async {
                         onComplete(result.results ?? [])
                     }
+                    self.next = result.info?.next
                 case .failure(let error):
                     print(error.localizedDescription)
             }
         }
-        client.loadRequest(method: .character, completion: completion)
+        
+        DispatchQueue.main.async { [weak self] in
+            if let next = self?.next {
+                self?.client.loadRequest(url: next, completion: completion)
+            } else {
+                self?.client.loadRequest(method: .character, completion: completion)
+            }
+        }
     }
+    
 }

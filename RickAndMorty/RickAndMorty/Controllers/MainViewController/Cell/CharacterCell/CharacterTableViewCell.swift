@@ -62,4 +62,11 @@ final class CharacterTableViewCell: UITableViewCell {
         characterImageView.loadImage(from: char.image)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        [statusLabel, genderLabel, speciesLabel, nameLabel].forEach {
+            $0?.text = nil
+        }
+        characterImageView.image = nil
+    }
 }
