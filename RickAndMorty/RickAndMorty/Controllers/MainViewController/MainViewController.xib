@@ -11,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="RickAndMorty" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="CeW-QX-tEM" id="EHS-5w-CKR"/>
+                <outlet property="filterButton" destination="Oeh-Ig-iTt" id="uK8-gZ-Gkl"/>
+                <outlet property="filtersCollectionView" destination="Z3f-dj-ISR" id="8qo-NU-ZGJ"/>
+                <outlet property="searchBar" destination="6If-4x-5Dr" id="WWj-ny-wIs"/>
                 <outlet property="tableView" destination="hya-RD-qi3" id="mvX-rK-AST"/>
                 <outlet property="tableViewBottomConstraint" destination="HuM-xh-Ael" id="Hrb-dK-xa7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hya-RD-qi3">
-                    <rect key="frame" x="0.0" y="46" width="414" height="808"/>
+                    <rect key="frame" x="0.0" y="149" width="414" height="705"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CeW-QX-tEM">
@@ -32,6 +35,53 @@
                         <constraint firstAttribute="height" constant="40" id="iYJ-pn-aXe"/>
                     </constraints>
                 </activityIndicatorView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nSq-NE-RKk">
+                    <rect key="frame" x="20" y="60" width="374" height="85"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="veN-oV-L3M">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6If-4x-5Dr">
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Ll4-QH-pc2"/>
+                                    </constraints>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-Ig-iTt">
+                                    <rect key="frame" x="334" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Oeh-Ig-iTt" secondAttribute="height" multiplier="1:1" id="SGU-a9-hNf"/>
+                                        <constraint firstAttribute="height" constant="40" id="Suw-77-haR"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="Filters"/>
+                                    <connections>
+                                        <action selector="filterButtonPressed:" destination="-1" eventType="touchUpInside" id="922-r2-uA6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-dj-ISR">
+                            <rect key="frame" x="0.0" y="45" width="374" height="40"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="yTp-6k-Nsb"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yop-Sm-4OE">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Z3f-dj-ISR" secondAttribute="bottom" id="4E0-lq-En0"/>
+                        <constraint firstAttribute="trailing" secondItem="Z3f-dj-ISR" secondAttribute="trailing" id="V9r-gM-Ppz"/>
+                        <constraint firstItem="Z3f-dj-ISR" firstAttribute="leading" secondItem="nSq-NE-RKk" secondAttribute="leading" id="uym-bo-KFV"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -39,14 +89,18 @@
                 <constraint firstItem="hya-RD-qi3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="16b-wK-suK"/>
                 <constraint firstItem="CeW-QX-tEM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Mm-TC-2HX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hya-RD-qi3" secondAttribute="trailing" id="8R5-2z-dD1"/>
+                <constraint firstItem="nSq-NE-RKk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="Axr-Mx-uUZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hya-RD-qi3" secondAttribute="bottom" constant="8" id="HuM-xh-Ael"/>
+                <constraint firstItem="nSq-NE-RKk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="TtH-mP-sYg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nSq-NE-RKk" secondAttribute="trailing" constant="20" id="jjt-OZ-nwg"/>
+                <constraint firstItem="hya-RD-qi3" firstAttribute="top" secondItem="nSq-NE-RKk" secondAttribute="bottom" constant="4" id="lmJ-f6-Wlt"/>
                 <constraint firstItem="CeW-QX-tEM" firstAttribute="top" secondItem="hya-RD-qi3" secondAttribute="bottom" constant="4" id="luR-pv-ewg"/>
-                <constraint firstItem="hya-RD-qi3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="2" id="vUh-qT-6b9"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="150"/>
         </view>
     </objects>
     <resources>
+        <image name="Filters" width="17" height="16.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

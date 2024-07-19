@@ -11,6 +11,12 @@
 		A8CB56012C47C1EF0018B137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8CB56002C47C1EF0018B137 /* Assets.xcassets */; };
 		A8CB56112C47C53F0018B137 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB560F2C47C53F0018B137 /* MainViewController.xib */; };
 		A8CB56122C47C53F0018B137 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB56102C47C53F0018B137 /* MainViewController.swift */; };
+		A8D2FA4E2C49DD6F00EB26AB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FA4D2C49DD6F00EB26AB /* SearchViewController.swift */; };
+		A8D2FA512C49E14C00EB26AB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FA502C49E14C00EB26AB /* SearchTableViewCell.swift */; };
+		A8D2FA532C49E2A100EB26AB /* SearchItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FA522C49E2A100EB26AB /* SearchItemCollectionViewCell.swift */; };
+		A8D2FA582C4A5F4300EB26AB /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FA572C4A5F4300EB26AB /* EpisodeService.swift */; };
+		A8D2FA5A2C4A5FBB00EB26AB /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FA592C4A5FBB00EB26AB /* EpisodeModel.swift */; };
+		A8D2FA5D2C4AA3EC00EB26AB /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D2FA5C2C4AA3EC00EB26AB /* SplashScreen.storyboard */; };
 		A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE052C47CC8200828BB7 /* CharacterTableViewCell.swift */; };
 		A8E4BE082C47CC8200828BB7 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E4BE062C47CC8200828BB7 /* CharacterTableViewCell.xib */; };
 		A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4BE092C47CCA400828BB7 /* Extensions.swift */; };
@@ -35,6 +41,12 @@
 		A8CB56052C47C1EF0018B137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CB560F2C47C53F0018B137 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		A8CB56102C47C53F0018B137 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A8D2FA4D2C49DD6F00EB26AB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A8D2FA502C49E14C00EB26AB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		A8D2FA522C49E2A100EB26AB /* SearchItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8D2FA572C4A5F4300EB26AB /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
+		A8D2FA592C4A5FBB00EB26AB /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		A8D2FA5C2C4AA3EC00EB26AB /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		A8E4BE052C47CC8200828BB7 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		A8E4BE062C47CC8200828BB7 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		A8E4BE092C47CCA400828BB7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -104,6 +116,7 @@
 		A8CB56142C47C6ED0018B137 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8D2FA4F2C49E10D00EB26AB /* SearchViewController */,
 				A8CB56162C47C7090018B137 /* MainViewController */,
 				A8E4BE1C2C47F4DA00828BB7 /* DetailViewController */,
 			);
@@ -115,6 +128,7 @@
 			children = (
 				A8E4BE0B2C47D3F600828BB7 /* Fonts */,
 				A8CB56002C47C1EF0018B137 /* Assets.xcassets */,
+				A8D2FA5C2C4AA3EC00EB26AB /* SplashScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -128,6 +142,24 @@
 				A8CB560F2C47C53F0018B137 /* MainViewController.xib */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		A8D2FA4F2C49E10D00EB26AB /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A8D2FA542C49E2A500EB26AB /* Cells */,
+				A8D2FA4D2C49DD6F00EB26AB /* SearchViewController.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		A8D2FA542C49E2A500EB26AB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A8D2FA502C49E14C00EB26AB /* SearchTableViewCell.swift */,
+				A8D2FA522C49E2A100EB26AB /* SearchItemCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A8E4BE032C47CC5400828BB7 /* Cell */ = {
@@ -172,6 +204,7 @@
 			children = (
 				A8E4BE1A2C47EB7F00828BB7 /* CharacterModel.swift */,
 				A8E4BE262C4841B100828BB7 /* RequestResult.swift */,
+				A8D2FA592C4A5FBB00EB26AB /* EpisodeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +223,7 @@
 			children = (
 				A8E4BE282C48488400828BB7 /* Api */,
 				A8E4BE2B2C4855DB00828BB7 /* CharacterService.swift */,
+				A8D2FA572C4A5F4300EB26AB /* EpisodeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -261,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E4BE082C47CC8200828BB7 /* CharacterTableViewCell.xib in Resources */,
+				A8D2FA5D2C4AA3EC00EB26AB /* SplashScreen.storyboard in Resources */,
 				A8CB56012C47C1EF0018B137 /* Assets.xcassets in Resources */,
 				A8E4BE182C47E9F000828BB7 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				A8E4BE202C47F4FF00828BB7 /* DetailViewController.xib in Resources */,
@@ -283,7 +318,12 @@
 				A8CB55F82C47C1ED0018B137 /* AppDelegate.swift in Sources */,
 				A8E4BE2C2C4855DB00828BB7 /* CharacterService.swift in Sources */,
 				A8E4BE0E2C47D42300828BB7 /* Fonts.swift in Sources */,
+				A8D2FA532C49E2A100EB26AB /* SearchItemCollectionViewCell.swift in Sources */,
+				A8D2FA5A2C4A5FBB00EB26AB /* EpisodeModel.swift in Sources */,
+				A8D2FA512C49E14C00EB26AB /* SearchTableViewCell.swift in Sources */,
 				A8CB56122C47C53F0018B137 /* MainViewController.swift in Sources */,
+				A8D2FA582C4A5F4300EB26AB /* EpisodeService.swift in Sources */,
+				A8D2FA4E2C49DD6F00EB26AB /* SearchViewController.swift in Sources */,
 				A8E4BE1B2C47EB7F00828BB7 /* CharacterModel.swift in Sources */,
 				A8E4BE072C47CC8200828BB7 /* CharacterTableViewCell.swift in Sources */,
 				A8E4BE0A2C47CCA400828BB7 /* Extensions.swift in Sources */,

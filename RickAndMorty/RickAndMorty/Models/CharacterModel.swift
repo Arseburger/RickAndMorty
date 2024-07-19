@@ -1,10 +1,3 @@
-//
-//  CharacterModel.swift
-//  RickAndMorty
-//
-//  Created by Александр Королёв on 17.07.2024.
-//
-
 import UIKit
 
 struct Character: Decodable, Hashable {
@@ -12,7 +5,7 @@ struct Character: Decodable, Hashable {
     var name: String
     var status: String
     var species: String
-    var gender: String
+    var gender: Gender
     
     struct Location: Decodable, Hashable {
         let name: String
@@ -27,7 +20,7 @@ struct Character: Decodable, Hashable {
         name: "Rick Sanchez",
         status: "Alive",
         species: "Human",
-        gender: "Male",
+        gender: .male,
         location: Location(
             name: "Citadel of Ricks"
         ),
@@ -42,17 +35,39 @@ struct Character: Decodable, Hashable {
     }
 }
 
-    enum Status: String, Decodable {
-        case alive = "Alive"
-        case dead = "Dead"
-        case unknown = "Unknown"
-        
-        init?(rawValue: String) {
-            switch rawValue {
-                case "Alive": self = .alive
-                case "Dead": self = .dead
-                case "Unknown": self = .unknown
-                default: self = .unknown
-            }
+protocol MyEnum {
+    associatedtype Item
+    var item: Item? { get }
+}
+
+typealias FilterOptions = (status: Status?, gender: Gender?)
+    
+enum Status: String, Decodable, CaseIterable {
+    case alive = "Alive"
+    case dead = "Dead"
+    case unknown = "Unknown"
+    
+    init?(rawValue: String) {
+        switch rawValue {
+            case "Alive": self = .alive
+            case "Dead": self = .dead
+            default: self = .unknown
         }
     }
+}
+
+enum Gender: String, Decodable, CaseIterable {
+    case female = "Female"
+    case male = "Male"
+    case genderless = "Genderless"
+    case unknown = "Unknown"
+    
+    init?(rawValue: String) {
+        switch rawValue {
+            case "Female": self = .female
+            case "Male": self = .male
+            case "Genderless": self = .genderless
+            default: self = .unknown
+        }
+    }
+}

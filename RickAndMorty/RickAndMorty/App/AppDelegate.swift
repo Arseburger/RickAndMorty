@@ -1,11 +1,5 @@
-//
-//  AppDelegate.swift
-//  RickAndMorty
-//
-//  Created by Александр Королёв on 17.07.2024.
-//
-
 import UIKit
+import Network
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UINavigationController(rootViewController: MainViewController())
         vc.setupNavigationBar()
         window?.rootViewController = vc
-        URLCache.shared = .init(memoryCapacity: 6 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, directory: nil)
         
         return true
     }

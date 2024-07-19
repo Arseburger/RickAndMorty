@@ -1,10 +1,3 @@
-//
-//  ApiClient.swift
-//  RickAndMorty
-//
-//  Created by Александр Королёв on 17.07.2024.
-//
-
 import Foundation
 
 final class ApiClient {
@@ -21,19 +14,33 @@ final class ApiClient {
         params: String? = nil,
         completion: @escaping (Result<RequestResult<T>, Error>) -> Void
     ) {
-        var url = baseURL + method.rawValue
-        if let params = params {
-            url += "/\(params)"
-        }
-        loadRequest(url: url, completion: completion)
+        loadBaseRequest(method: method, params: params, completion: completion)
     }
     
     func loadRequest<T: Decodable>(
         url: String,
         completion: @escaping (Result<RequestResult<T>, Error>) -> Void
     ) {
+        loadBaseRequest(url: url, completion: completion)
+    }
+    
+    func loadBaseRequest<T: Decodable>(
+        method: Methods,
+        params: String? = nil,
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
+        var url = baseURL + method.rawValue
+        if let params = params {
+            url += "/\(params)"
+        }
+        loadBaseRequest(url: url, completion: completion)
+    }
+    
+    func loadBaseRequest<T: Decodable>(
+        url: String,
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
         guard let url = URL(string: url) else { return }
-        
         let request = URLRequest(url: url)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, _, error in
@@ -46,7 +53,7 @@ final class ApiClient {
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let response = try decoder.decode(RequestResult<T>.self, from: data)
+                    let response = try decoder.decode(T.self, from: data)
                     completion(.success(response))
                 } catch {
                     print("Error parsing JSON: \(error.localizedDescription)")
@@ -55,4 +62,5 @@ final class ApiClient {
         }
         task.resume()
     }
+    
 }

@@ -3,14 +3,26 @@ import Foundation
 final class CharacterService {
 
     private typealias CharacterResult = Result<RequestResult<[Character]>, Error>
-    private let queue = DispatchQueue(label: "com.rick_morty.CharacterService", qos: .userInitiated)
     
     private let client = ApiClient()
+    private let queue = DispatchQueue(label: "com.rick_morty.CharacterService", qos: .userInitiated)
     
-    private var isFirstLoaded = false
     private var next: String?
     private var currentCount: Int = .zero
+    private var isFirstLoaded = false
+    private var isLoading = false
     private(set) var isCompleted: Bool = false
+
+    var gender: Gender? {
+        didSet {
+            reset()
+        }
+    }
+    var status: Status? {
+        didSet {
+            reset()
+        }
+    }
 
     private lazy var deduplicator = Set<Int>()
     
@@ -20,13 +32,17 @@ final class CharacterService {
             return
         }
 
+        guard !isLoading else { return }
+        isLoading = true
+
         if let next = next, isFirstLoaded {
             client.loadRequest(url: next) { [weak self] (result: CharacterResult) in
                 guard let self = self else { return }
                 self.processPage(result: result, onComplete: onComplete)
             }
         } else {
-            client.loadRequest(method: .character, params: nil) { [weak self] (result: CharacterResult) in
+            let params = getParams()
+            client.loadRequest(method: .character, params: params) { [weak self] (result: CharacterResult) in
                 guard let self = self else { return }
                 self.processPage(result: result, onComplete: onComplete)
             }
@@ -39,6 +55,7 @@ final class CharacterService {
     ) {
         self.queue.async {
             self.isFirstLoaded = true
+            self.isLoading = false
             switch result {
                 case .success(let res):
                     if let info = res.info, let characters = res.results {
@@ -57,5 +74,30 @@ final class CharacterService {
                     onComplete([])
             }
         }
+    }
+
+    private func reset() {
+        next = nil
+        currentCount = .zero
+        deduplicator.removeAll()
+        isCompleted = false
+        isLoading = false
+    }
+    
+    private func getParams() -> String? {
+        var paramStr = [String]()
+        if let gender = gender {
+            paramStr.append("gender=\(gender.rawValue.lowercased())")
+        }
+        
+        if let status = status {
+            paramStr.append("status=\(status.rawValue.lowercased())")
+        }
+        
+        if paramStr.isEmpty {
+            return nil
+        }
+        
+        return "?" + paramStr.joined(separator: "&")
     }
 }
