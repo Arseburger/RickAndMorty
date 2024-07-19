@@ -1,10 +1,3 @@
-//
-//  Extensions.swift
-//  RickAndMorty
-//
-//  Created by Александр Королёв on 17.07.2024.
-//
-
 import UIKit
 
 extension UINavigationController {
@@ -44,6 +37,27 @@ extension UIImageView {
         workItem = copyWorkItem
         return workItem
     }
+    
+    func loadImage(by url: String) {
+        guard let url = URL(string: url) else { return }
+        
+        let cache = URLCache.shared
+        let request = URLRequest(url: url)
+        
+        if let imageData = cache.cachedResponse(for: request)?.data {
+            self.image = UIImage(data: imageData)
+        } else {
+            URLSession.shared.dataTask(with: request) { data, response, _ in
+                DispatchQueue.main.async {
+                    guard let data = data, let response = response else { return }
+                    let cacheRepsonse = CachedURLResponse(response: response, data: data)
+                    cache.storeCachedResponse(cacheRepsonse, for: request)
+                    self.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+    }
+    
 }
 
 final class ImageLoader {
@@ -85,5 +99,11 @@ extension  String {
         let nextIndex = self.index(after: charIndex)
         let result = self[nextIndex...]
         return String(result)
+    }
+    
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
     }
 }

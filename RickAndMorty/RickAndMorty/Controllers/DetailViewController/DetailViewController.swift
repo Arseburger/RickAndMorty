@@ -1,10 +1,3 @@
-//
-//  DetailViewController.swift
-//  RickAndMorty
-//
-//  Created by Александр Королёв on 17.07.2024.
-//
-
 import UIKit
 
 final class DetailViewController: UIViewController {
@@ -17,6 +10,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     
     var character: Character = .Rick
+    private lazy var service = EpisodeService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +49,7 @@ private extension DetailViewController {
         
         navigationItem.title = character.name
         
-        imageView.loadImage(from: character.image)
+        imageView.loadImage(by: character.image)
         
         statusLabel.text = character.status
         switch Status(rawValue: character.status) {
@@ -70,13 +64,33 @@ private extension DetailViewController {
         }
         
         speciesLabel.attributedText = makeAttributedLabelText("Species: ", from: character.species)
-        genderLabel.attributedText = makeAttributedLabelText("Gender: ", from: character.gender)
+        genderLabel.attributedText = makeAttributedLabelText("Gender: ", from: character.gender.rawValue)
         
         locationLabel.attributedText = makeAttributedLabelText("Last known location: ", from: (character.location.name))
         
-        episodesLabel.attributedText = makeAttributedLabelText("Episodes: ",
-            from: character.episode.map { $0.stringAfterLast("/") }.joined(separator: ", ")
-        )
+        let eps = character.episode.map { $0.stringAfterLast("/") }.joined(separator: ",")
+        
+        if character.episode.count > 1 {
+            
+            
+            service.loadEpisodes(params: eps) { [weak self] res in
+                
+                let text = res.map {
+                    $0.name
+                }.joined(separator: ", ")
+                DispatchQueue.main.async {
+                    self?.episodesLabel.attributedText = self?.makeAttributedLabelText("Episodes: ", from: text)
+                }
+            }
+            
+        } else {
+            service.loadEpisode(params: eps) { [weak self] ep in
+                DispatchQueue.main.async {
+                    self?.episodesLabel.attributedText = self?.makeAttributedLabelText("Episodes: ", from: ep.name)
+                }
+            }
+        }
+        
     }
                                                                
     

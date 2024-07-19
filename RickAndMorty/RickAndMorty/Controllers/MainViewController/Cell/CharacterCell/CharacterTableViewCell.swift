@@ -62,7 +62,7 @@ final class CharacterTableViewCell: UITableViewCell {
         }
         
         speciesLabel.text = char.species
-        genderLabel.text = char.gender
+        genderLabel.text = char.gender.rawValue
         
         loadingWorkItem = characterImageView.loadImage(from: char.image)
     }
